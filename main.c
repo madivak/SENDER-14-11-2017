@@ -36,9 +36,9 @@ int initialstatus();
 int a; int i; char w; int y;
 char input;
 char buff[20];
-char company[]	= "+254729660984"; //moha's No#
-char company2[]	= "+254732886886"; //fatah's no#
-char owner[]	= "+254727168428"; //kevin's no#
+char company[]	= "+254729------"; //moha's No#
+char company2[]	= "+254732------"; //fatah's no#
+char owner[]	= "+254727------"; //kevin's no#
 
 
 int main( void )
@@ -160,7 +160,7 @@ int CheckSMS()
 //			checkOKstatus();
 			printf("AT+CMGD=1,4\r\n"); //clearing all SMS in storage AREA
 			checkOKstatus();
-			printf("AT+CMGW=\"254727168428\",145,\"STO UNSENT\"\r\n");
+			printf("AT+CMGW=\"254727------\",145,\"STO UNSENT\"\r\n");
 			_delay_ms(2000);
 			printf("0");
 			putchar(0x1A); //putting AT-MSG termination CTRL+Z in USART0
@@ -171,7 +171,7 @@ int CheckSMS()
 //			checkOKstatus();
 			printf("AT+CMGD=1,4\r\n"); //clearing all SMS in storage AREA
 			checkOKstatus();
-			printf("AT+CMGW=\"254727168428\",145,\"STO UNSENT\"\r\n");
+			printf("AT+CMGW=\"254727------\",145,\"STO UNSENT\"\r\n");
 			_delay_ms(2000);
 			printf("1");
 			putchar(0x1A); //putting AT-MSG termination CTRL+Z in USART0
@@ -246,13 +246,13 @@ char sample_GPS_data (void)
 	_delay_ms(2000);
 	printf("AT+CIPMUX=0\r\n");
 	_delay_ms(1000);
-	printf("AT+CSTT=\"safaricom\",\"\",\"\"\r\n");
+	printf("AT+CSTT=\"APN\",\"\",\"\"\r\n");
 	_delay_ms(2000);
 	printf("AT+CIICR\r\n");
 	_delay_ms(3000);
 	printf("AT+CIFSR\r\n");
 	_delay_ms(2000);
-	printf("AT+CIPSTART=\"TCP\",\"163.172.186.181\",\"9000\"\r\n");
+	printf("AT+CIPSTART=\"TCP\",\"SERVER\",\"PORT\"\r\n");
 	_delay_ms(1000);
 	printf("AT+CIPSEND\r\n");
 	_delay_ms(2000);
@@ -284,19 +284,7 @@ char sample_GPS_data (void)
 								putchar(input); //Get GPGGA data
 								input = getchar();
 								i=1;
-							}
-// 							
-// 							input = getchar();
-// 							while (input != 0x024)  //if the character is not "$"
-// 							{ input = getchar(); }
-// 							
-// 							input = getchar();
-// 							while (input != 0x024)  //if the character is not "$"
-// 							{
-// 								putchar(input); //Get GPGGA data
-// 								input = getchar();
-// 								i=1;
-// 							}	
+							}	
 							
 						}
 					}
