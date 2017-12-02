@@ -284,7 +284,7 @@ char sample_GPS_data (void)
 	_delay_ms(1000);
 	printf("AT+CIPSEND\r\n");
 	_delay_ms(2000);
-	printf("\r\nCAR PLATE NO:[KBY-xxxx] \r\nGPGG");
+	printf("\r\nCAR PLATE NO:[KBY-xxxx] \r\n$GPGG");
 	while(i == 0)
 	{
 		input = getchar();
@@ -324,7 +324,7 @@ char sample_GPS_data (void)
 		else{}
 	}
 	
-	printf("GPRM");
+	printf("$GPRM");
 	while(i == 1)
 		{
 			input = getchar();
