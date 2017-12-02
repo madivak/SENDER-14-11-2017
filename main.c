@@ -40,11 +40,7 @@ char buff[20];
 char company[]	= "+2547xxxxxxxx"; //moha's No#
 char company2[]	= "+2547xxxxxxxx"; //fatah's no#
 char owner[]	= "+2547xxxxxxxx"; //kevin's no#
-<<<<<<< HEAD
 //char owner[]	= "+2547xxxxxxxx"; //danstan's no#
-=======
-
->>>>>>> 07a6ed0f38ab3c863810aeb443b0ceed0c48918b
 
 int main( void )
 {
@@ -67,16 +63,13 @@ int main( void )
 		int n = 0;
 		CheckSMS(); //check if available unread SMS and its content
 		int f = buff[13]; // get car status value from buff[13
-
-<<<<<<< HEAD
+		
 		//Alter status of car
  		int y = buff[14] + buff[15] + buff[16]; //sum values of the 3 buffer values		
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////		
-=======
  		int y = buff[14] + buff[15] + buff[16]; //sum values of the 3 buffer values
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//Interaction between GPS,ATMEGA & GSM
->>>>>>> 07a6ed0f38ab3c863810aeb443b0ceed0c48918b
 		fdev_close();
 		stdout = &uart0_output;
 		stdin = &uart1_input;
@@ -194,13 +187,9 @@ int CheckSMS()
 //			checkOKstatus();
 			printf("AT+CMGD=1,4\r\n"); //clearing all SMS in storage AREA
 			checkOKstatus();
-<<<<<<< HEAD
 			printf("AT+CMGW=\"");
 			PrintSender();
 			printf("\",145,\"STO UNSENT\"\r\n");
-=======
-			printf("AT+CMGW=\"2547xxxxxxxx\",145,\"STO UNSENT\"\r\n");
->>>>>>> 07a6ed0f38ab3c863810aeb443b0ceed0c48918b
 			_delay_ms(2000);
 			printf("1");
 			putchar(0x1A); //putting AT-MSG termination CTRL+Z in USART0
